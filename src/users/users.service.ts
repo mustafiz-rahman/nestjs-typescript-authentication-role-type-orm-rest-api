@@ -18,4 +18,7 @@ export class UsersService {
         
         return this.repo.find();
     }
+    findOne(id:number){
+        return this.repo.findOne(id);
+    }
 }
