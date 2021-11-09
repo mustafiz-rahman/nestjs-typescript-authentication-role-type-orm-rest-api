@@ -21,4 +21,12 @@ export class UsersService {
     findOne(id:number){
         return this.repo.findOne(id);
     }
+    async update(id:number,atters:Partial<User>){
+        const user = await this.findOne(id);
+        if(!user){
+            throw new Error('User not found'); 
+        }
+        Object.assign(user,atters);
+        return this.repo.save(user);
+    }
 }
