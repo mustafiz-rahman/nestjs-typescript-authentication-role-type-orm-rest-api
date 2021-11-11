@@ -4,6 +4,10 @@ import { plainToClass } from "class-transformer";
 import { UserDto } from "src/users/dtos/user.dto";
 import { User } from "src/users/user.entity";
 
+interface ClassConstructor{
+    new (...args:any[]):{}
+}
+
 export function Serialize(dto:any){
     return UseInterceptors(new SerializerInterceptor(dto));
 }
